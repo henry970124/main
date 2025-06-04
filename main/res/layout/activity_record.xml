@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/aa12"
+    tools:context=".MainActivity">
+
+    <!-- 可滾動的內容區域 -->
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/nested_scroll_view"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="8dp"
+        android:fillViewport="true"
+        android:scrollbars="none"
+        app:layout_constraintBottom_toTopOf="@+id/bottom_navigation_bar_container"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"> <!--  在NestedScrollView和底部導航間加一點間距  -->
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingBottom="24dp">
+
+            <!-- 熱量記錄表格區域 -->
+
+            <!-- 開始跑 按鈕 (圓形) -->
+
+            <!-- 往下滾動後顯示的內容 -->
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/button_start_running"
+                style="@style/Widget.MaterialComponents.Button.UnelevatedButton"
+                android:layout_width="255dp"
+                android:layout_height="160dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="30dp"
+                android:text="開始跑"
+                android:textColor="@android:color/white"
+                android:textSize="22sp"
+                android:textStyle="bold"
+                app:backgroundTint="#4272A5"
+                app:cornerRadius="80dp" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/button_start_running4"
+                style="@style/Widget.MaterialComponents.Button.UnelevatedButton"
+                android:layout_width="258dp"
+                android:layout_height="160dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="30dp"
+                android:text="歷史紀錄"
+                android:textColor="@android:color/white"
+                android:textSize="22sp"
+                android:textStyle="bold"
+                app:backgroundTint="#4272A5"
+                app:cornerRadius="80dp" />
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="34sp" />
+
+            <TextView
+                android:id="@+id/text_longest_distance"
+                android:layout_width="124dp"
+                android:layout_height="wrap_content"
+                android:background="#E0E0E0"
+                android:gravity="center"
+                android:minWidth="220dp"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:text="最長距離"
+                android:textColor="@android:color/black"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/text_fastest_duration"
+                android:layout_width="125dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:background="#E0E0E0"
+                android:gravity="center"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:text="最快時長"
+                android:textColor="@android:color/black"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/text_fastest_rate"
+                android:layout_width="124dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:background="#E0E0E0"
+                android:gravity="center"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:text="最快速率"
+                android:textColor="@android:color/black"
+                android:textSize="18sp" />
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+    <!-- 底部固定導航按鈕容器 -->
+    <LinearLayout
+        android:id="@+id/bottom_navigation_bar_container"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="#00000"
+        android:orientation="horizontal"
+        android:paddingTop="8dp"
+        android:paddingBottom="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <Button
+            android:id="@+id/button_home"
+            style="?android:attr/buttonBarButtonStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="4dp"
+            android:layout_weight="1"
+            android:backgroundTint="#FFFFFF"
+            android:text="主頁面"
+            android:textColor="@android:color/black" />
+
+        <Button
+            android:id="@+id/button_record"
+            style="?android:attr/buttonBarButtonStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:layout_marginEnd="4dp"
+            android:layout_weight="1"
+            android:backgroundTint="#FFFFFF"
+            android:text="紀錄"
+            android:textColor="@android:color/black" />
+
+        <Button
+            android:id="@+id/button_plan"
+            style="?android:attr/buttonBarButtonStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:layout_marginEnd="4dp"
+            android:layout_weight="1"
+            android:backgroundTint="#FFFFFF"
+            android:text="分析"
+            android:textColor="@android:color/black" />
+
+        <Button
+            android:id="@+id/button_diet"
+            style="?android:attr/buttonBarButtonStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:layout_marginEnd="8dp"
+            android:layout_weight="1"
+            android:backgroundTint="#FFFFFF"
+            android:text="飲食"
+            android:textColor="@android:color/black" />
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

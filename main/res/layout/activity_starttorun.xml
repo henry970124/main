@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/aa12"
+    tools:context=".starttorun">
+
+    <!-- 返回按鈕 -->
+    <ImageButton
+        android:id="@+id/button_back"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:contentDescription="返回"
+        android:padding="8dp"
+        android:src="?attr/homeAsUpIndicator"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:tint="@android:color/white"
+        tools:ignore="TouchTargetSizeCheck" />
+
+    <!-- 計時器 -->
+    <TextView
+        android:id="@+id/text_timer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="0:00:00"
+        android:textColor="@android:color/white"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@+id/button_back"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/button_back"
+        app:layout_constraintBottom_toBottomOf="@+id/button_back"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintHorizontal_bias="0.0"
+        tools:ignore="HardcodedText" />
+
+
+    <!-- 地圖佔位區域 -->
+    <FrameLayout
+        android:id="@+id/map_container"
+        android:layout_width="0dp"
+        android:layout_height="220dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="40dp"
+        android:background="@drawable/map_area_background"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button_back"> <!-- 約束到返回按鈕下方 -->
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="MAP"
+            android:textColor="@android:color/white"
+            android:textSize="30sp"
+            android:textStyle="bold" />
+    </FrameLayout>
+
+    <!-- 數據顯示區域 (標籤和數值) -->
+    <!-- 秒數 -->
+    <TextView
+        android:id="@+id/label_seconds"
+        android:layout_width="wrap_content"
+        android:minWidth="100dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="32dp"
+        android:background="@drawable/data_label_background"
+        android:gravity="center_vertical|start"
+        android:paddingStart="12dp"
+        android:paddingTop="10dp"
+        android:paddingEnd="12dp"
+        android:paddingBottom="10dp"
+        android:text="秒數"
+        android:textColor="@android:color/white"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/map_container" />
+
+    <TextView
+        android:id="@+id/value_seconds"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_marginStart="16dp"
+        android:gravity="center_vertical"
+        android:text="00:00:00"
+        android:textColor="@android:color/white"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintTop_toTopOf="@+id/label_seconds"
+        app:layout_constraintBottom_toBottomOf="@+id/label_seconds"
+        app:layout_constraintStart_toEndOf="@+id/label_seconds"
+        tools:ignore="HardcodedText" />
+
+    <!-- 距離 -->
+    <TextView
+        android:id="@+id/label_distance"
+        android:layout_width="wrap_content"
+        android:minWidth="100dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/data_label_background"
+        android:gravity="center_vertical|start"
+        android:paddingStart="12dp"
+        android:paddingTop="10dp"
+        android:paddingEnd="12dp"
+        android:paddingBottom="10dp"
+        android:text="距離"
+        android:textColor="@android:color/white"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="@+id/label_seconds"
+        app:layout_constraintTop_toBottomOf="@+id/label_seconds" />
+
+    <TextView
+        android:id="@+id/value_distance"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_marginStart="16dp"
+        android:gravity="center_vertical"
+        android:text="0.0 km"
+        android:textColor="@android:color/white"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintTop_toTopOf="@+id/label_distance"
+        app:layout_constraintBottom_toBottomOf="@+id/label_distance"
+        app:layout_constraintStart_toEndOf="@+id/label_distance"
+        tools:ignore="HardcodedText" />
+
+    <!-- 配速 -->
+    <TextView
+        android:id="@+id/label_pace"
+        android:layout_width="wrap_content"
+        android:minWidth="100dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/data_label_background"
+        android:gravity="center_vertical|start"
+        android:paddingStart="12dp"
+        android:paddingTop="10dp"
+        android:paddingEnd="12dp"
+        android:paddingBottom="10dp"
+        android:text="配速"
+        android:textColor="@android:color/white"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="@+id/label_distance"
+        app:layout_constraintTop_toBottomOf="@+id/label_distance" />
+
+    <TextView
+        android:id="@+id/value_pace"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_marginStart="16dp"
+        android:gravity="center_vertical"
+        android:text="0'00\/km"
+        android:textColor="@android:color/white"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintTop_toTopOf="@+id/label_pace"
+        app:layout_constraintBottom_toBottomOf="@+id/label_pace"
+        app:layout_constraintStart_toEndOf="@+id/label_pace"
+        tools:ignore="HardcodedText" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

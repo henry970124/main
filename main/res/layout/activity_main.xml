@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/aa12"
+    tools:context=".MainActivity">
+
+    <FrameLayout
+        android:id="@+id/pentagon_container"
+        android:layout_width="210dp"
+        android:layout_height="200dp"
+        app:layout_constraintVertical_chainStyle="packed"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/energy_arc_container"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="50dp" >
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/ic_pentagon_white"
+            android:scaleType="fitCenter"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="卡路\n里"
+            android:textColor="@android:color/black"
+            android:textSize="46sp"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:lineSpacingMultiplier="0.9"
+            android:shadowColor="#50000000"
+            android:shadowDx="2"
+            android:shadowDy="2"
+            android:shadowRadius="2.5"/>
+    </FrameLayout>
+
+    <!-- 熱量 粗弧形區域 -->
+    <FrameLayout
+        android:id="@+id/energy_arc_container"
+        android:layout_width="290dp"
+        android:layout_height="80dp"
+        app:layout_constraintTop_toBottomOf="@+id/pentagon_container"
+        app:layout_constraintBottom_toTopOf="@+id/water_cup_container"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="10dp">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/shape_thick_white_arc"
+            android:scaleType="fitCenter"
+            android:layout_gravity="center"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="熱量"
+            android:textColor="@android:color/black"
+            android:textSize="18sp"
+            android:layout_gravity="center"
+            android:paddingBottom="5dp"/> <!-- 微調padding使文字在弧形上更合適 -->
+    </FrameLayout>
+
+    <!-- 水 杯形區域 -->
+    <FrameLayout
+        android:id="@+id/water_cup_container"
+        android:layout_width="100dp"
+        android:layout_height="130dp"
+        app:layout_constraintTop_toBottomOf="@+id/energy_arc_container"
+        app:layout_constraintBottom_toTopOf="@+id/bottom_navigation_bar_container"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="15dp">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/ic_cup_white_v2"
+            android:scaleType="fitXY"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="水"
+            android:textColor="@android:color/black"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:layout_gravity="center"/>
+    </FrameLayout>
+
+
+    <!-- 底部導航按鈕容器 (矩形按鈕) -->
+    <LinearLayout
+        android:id="@+id/bottom_navigation_bar_container"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:gravity="center_vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:background="@drawable/"> <!-- 與主背景色相同，按鈕有自己的背景 -->
+
+        <Button
+            android:id="@+id/button_home"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="5dp"
+            android:text="主頁面"
+            android:textColor="@android:color/black"
+            android:backgroundTint="#FFFFFF"
+            style="?android:attr/buttonBarButtonStyle" /> <!-- 使用buttonBarButtonStyle移除陰影，如果需要更扁平的外觀 -->
+
+        <Button
+            android:id="@+id/button_record"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginStart="5dp"
+            android:layout_marginEnd="5dp"
+            android:text="紀錄"
+            android:textColor="@android:color/black"
+            android:backgroundTint="#FFFFFF"
+            style="?android:attr/buttonBarButtonStyle" />
+
+        <Button
+            android:id="@+id/button_plan"
+            style="?android:attr/buttonBarButtonStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:layout_marginEnd="5dp"
+            android:layout_weight="1"
+            android:backgroundTint="#FFFFFF"
+            android:text="分析"
+            android:textColor="@android:color/black" />
+
+        <Button
+            android:id="@+id/button_diet"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginStart="5dp"
+            android:layout_marginEnd="10dp"
+            android:text="飲食"
+            android:textColor="@android:color/black"
+            android:backgroundTint="#FFFFFF"
+            style="?android:attr/buttonBarButtonStyle" />
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
